@@ -1,0 +1,14 @@
+---
+- hosts: ansible 
+  tasks: 
+  - name: create a docker image
+    command: docker build -t tomcat1:latest .
+    args:
+     chdir: /opt/ansible1/
+
+  - name: create tag to push image to into docker hub
+    command: docker tag tomcat1:latest raghusadhu/tomcat1:latest
+
+  - name: push docker image
+    command: docker push raghusadhu/tomcat1:latest
+

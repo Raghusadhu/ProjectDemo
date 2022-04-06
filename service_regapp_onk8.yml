@@ -1,0 +1,9 @@
+---
+- hosts: kubernetes 
+  user: root 
+  tasks:
+  - name: stop existing container
+    command: kubectl apply -f helloworld-service.yml
+
+ 
+
